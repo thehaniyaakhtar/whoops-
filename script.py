@@ -31,22 +31,64 @@ doggy.bark()
 
 
 class Dog: # dog class 
-    def __init__(self, name, breed):
-    # init method, spl method, ran once when an obj is instantiated
-        self.name = name
+    def __init__(self, name, breed, owner):
+    # init method, spl method, ran once when a class is instantiated
+        self.name = name # attributes
         self.breed = breed
+        self.owner = owner
         
-    def bark(self):
+    def bark(self): # method
         print("Whoof Whoof")
         
-dog1 = Dog("A", "xyz") # creating a dog object
-                       # this is when __init__ runs
+# different objects can be created with relation between them
+class Owner:
+    def __init__(self, name, address, contact_number):
+        self.name = name
+        self.address = address
+        self.phone_number = contact_number
+        
+owner1 = Owner("AA", "123 A", "432245")        
+dog1 = Dog("A", "xyz", owner1) # creating a dog object of the dof class
+                               # this is when __init__ runs
+
+print(dog1.owner.name)
 dog1.bark()
 print(dog1.name)
 print(dog1.breed)
 # different dog objects can be created and acc
 
-dog2 = Dog("B", "hijk")
+owner2 = Owner("BB", "345 AA", "123321")
+dog2 = Dog("B", "hijk", owner2) # seperate object
 dog2.bark()
-print(dog1.name)
-print(dog1.breed)
+print(dog2.name)
+print(dog2.breed)
+
+'''
+recap:
+a class is like a blueprint for an obj 
+it defines what attributes/data/methods an object created from that class will have
+An obj is an instance of a class
+Attributes are variables that store info of the obj
+methods are functions in  a class
+
+self is used to access an objects methods and attributes inside the class
+'''
+
+class Person:
+    # creating a person class
+    # creating attributes inside it
+    def __init__(self, name, age):
+        self.name = name # attributes
+        self.age = age
+        
+    # methods
+    def greet(self):
+        print(f"Hello my name is {self.name} and i am {self.age} years old")
+        
+# objects
+person1 = Person("Alice", 30)
+person1.greet()
+
+person2 = Person("Bob", 42)
+person2.greet()
+
